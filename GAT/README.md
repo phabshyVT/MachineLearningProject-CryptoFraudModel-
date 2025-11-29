@@ -18,18 +18,19 @@ GAT uses attention mechanisms to learn different importance weights for differen
 
 ### Model Architecture
 - **Layers**: Multi-layer GAT with multi-head attention
-- **Hidden Dimensions**: [To be specified]
-- **Number of Layers**: [To be specified]
-- **Attention Heads**: [To be specified]
-- **Activation**: ELU (or ReLU)
-- **Dropout**: [To be specified]
+- **Hidden Dimensions**: 64 (configurable)
+- **Number of Layers**: 2 (configurable)
+- **Attention Heads**: 8 (configurable)
+- **Activation**: ELU
+- **Dropout**: 0.5 (configurable)
 
 ### Training Parameters
-- **Learning Rate**: [To be specified]
-- **Batch Size**: [To be specified]
-- **Epochs**: [To be specified]
-- **Optimizer**: Adam
+- **Learning Rate**: 0.01 (configurable)
+- **Batch Size**: 32 (for graph-level tasks)
+- **Epochs**: 100 (configurable)
+- **Optimizer**: Adam with weight decay (5e-4)
 - **Loss Function**: CrossEntropyLoss
+- **Learning Rate Scheduler**: ReduceLROnPlateau
 
 ## Files
 
@@ -40,14 +41,34 @@ GAT uses attention mechanisms to learn different importance weights for differen
 
 ## Usage
 
+### Prerequisites
+Make sure you have the required packages installed:
+```bash
+pip install torch torch-geometric pandas numpy matplotlib scikit-learn
+```
+
 ### Training
 ```bash
-python train.py --data_dir ../data --epochs 100 --lr 0.01 --heads 8
+# Basic training with default parameters
+python train.py --data_dir ../data
+
+# Custom training with specific parameters
+python train.py --data_dir ../data --epochs 100 --lr 0.01 --num_heads 8 --hidden_dim 64 --num_layers 2
+
+# Use simple model (faster, fewer parameters)
+python train.py --data_dir ../data --model_type simple --num_heads 4
+
+# Use GPU (if available)
+python train.py --data_dir ../data --device cuda
 ```
 
 ### Evaluation
 ```bash
-python evaluate.py --model_path models/gat_model.pth --data_dir ../data
+# Evaluate trained model
+python evaluate.py --model_path models/gat_best_model.pth --data_dir ../data
+
+# Evaluate with specific model configuration
+python evaluate.py --model_path models/gat_best_model.pth --data_dir ../data --model_type full --hidden_dim 64 --num_layers 2 --num_heads 8
 ```
 
 ## Results
