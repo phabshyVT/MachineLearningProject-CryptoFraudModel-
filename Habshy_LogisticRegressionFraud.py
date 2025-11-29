@@ -16,8 +16,8 @@ warnings.filterwarnings("ignore")
 # -------------------------------------------------------------
 print("Loading data...")
 
-features = pd.read_csv("elliptic_txs_features.csv", header=None)
-classes = pd.read_csv("elliptic_txs_classes.csv")
+features = pd.read_csv("data/elliptic_txs_features.csv", header=None)
+classes = pd.read_csv("data/elliptic_txs_classes.csv")
 
 # Name columns
 num_features = 166
@@ -190,7 +190,7 @@ def plot_training_curves(costs, train_accs, val_accs):
     axes[1].grid(True)
 
     plt.tight_layout()
-    plt.savefig("training_curves.png", dpi=300)
+    plt.savefig("images/training_curves.png", dpi=300)
     plt.show()
 
 
@@ -221,7 +221,7 @@ def plot_confusion_matrix_emphasized(y_true, y_pred):
     plt.yticks([0, 1], ["Actual Licit (0)", "Actual Fraud (1)"])
 
     plt.tight_layout()
-    plt.savefig("confusion_matrix_emphasized.png", dpi=300)
+    plt.savefig("images/confusion_matrix_emphasized.png", dpi=300)
     plt.show()
 
 
@@ -238,7 +238,7 @@ def plot_prediction_distribution(y_pred):
 
     plt.ylabel("Count")
     plt.tight_layout()
-    plt.savefig("prediction_distribution.png", dpi=300)
+    plt.savefig("images/prediction_distribution.png", dpi=300)
     plt.show()
 
 
@@ -252,7 +252,7 @@ def plot_precision_recall(y_true, y_pred_proba):
     plt.ylabel("Precision")
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig("precision_recall_curve.png", dpi=300)
+    plt.savefig("images/precision_recall_curve.png", dpi=300)
     plt.show()
 
 
@@ -269,7 +269,7 @@ def plot_roc_curve(y_true, y_pred_proba):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig("roc_curve.png", dpi=300)
+    plt.savefig("images/roc_curve.png", dpi=300)
     plt.show()
 
 
@@ -287,7 +287,7 @@ def plot_class_distribution(y_train, y_test):
     axes[1].set_title("Test Class Distribution")
 
     plt.tight_layout()
-    plt.savefig("class_distribution.png", dpi=300)
+    plt.savefig("images/class_distribution.png", dpi=300)
     plt.show()
 
 

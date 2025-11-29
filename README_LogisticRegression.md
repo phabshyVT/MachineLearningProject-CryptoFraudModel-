@@ -101,13 +101,32 @@ The code generates 6 comprehensive visualizations:
 
 ## Output Files
 
-Running the script generates the following visualization files:
-- `training_curves.png` - Training cost and accuracy over iterations
-- `confusion_matrix_emphasized.png` - Confusion matrix visualization
-- `prediction_distribution.png` - Distribution of predictions
-- `precision_recall_curve.png` - Precision-Recall curve
-- `roc_curve.png` - ROC curve with AUC score
-- `class_distribution.png` - Class distribution in train/test sets
+Running the script generates the following visualization files in the `images/` folder:
+- `images/training_curves.png` - Training cost and accuracy over iterations
+- `images/confusion_matrix_emphasized.png` - Confusion matrix visualization
+- `images/prediction_distribution.png` - Distribution of predictions
+- `images/precision_recall_curve.png` - Precision-Recall curve
+- `images/roc_curve.png` - ROC curve with AUC score
+- `images/class_distribution.png` - Class distribution in train/test sets
+
+## Project Structure
+
+```
+MachineLearningProject-CryptoFraudModel-/
+├── data/
+│   ├── elliptic_txs_features.csv
+│   ├── elliptic_txs_classes.csv
+│   └── elliptic_txs_edgelist.csv
+├── images/
+│   ├── training_curves.png
+│   ├── confusion_matrix_emphasized.png
+│   ├── prediction_distribution.png
+│   ├── precision_recall_curve.png
+│   ├── roc_curve.png
+│   └── class_distribution.png
+├── Habshy_LogisticRegressionFraud.py
+└── README_LogisticRegression.md
+```
 
 ## Dependencies
 
@@ -120,9 +139,9 @@ matplotlib
 
 ## Usage
 
-1. Ensure the following CSV files are in the same directory:
-   - `elliptic_txs_features.csv`
-   - `elliptic_txs_classes.csv`
+1. Ensure the following CSV files are in the `data/` directory:
+   - `data/elliptic_txs_features.csv`
+   - `data/elliptic_txs_classes.csv`
 
 2. Run the script:
    ```bash
@@ -130,10 +149,10 @@ matplotlib
    ```
 
 3. The script will:
-   - Load and preprocess the data
+   - Load and preprocess the data from the `data/` folder
    - Train the logistic regression model
    - Evaluate performance metrics
-   - Generate and save all visualizations
+   - Generate and save all visualizations to the `images/` folder
 
 ## Key Features
 
