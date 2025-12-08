@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyTorch
+*.pth
+*.pt
+checkpoints/
+models/
+saved_models/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (if too large, use Git LFS)
+# Uncomment if you want to ignore data files
+# data/*.csv
+
+# Results and outputs
+results/
+outputs/
+*.log
+
